@@ -1,4 +1,5 @@
 SECRET_KEY = "changeme"
+TEMP_SECRET_KEY = "changeme"
 UPLOAD_DIRECTORY = "uploads"
 
 users = {
