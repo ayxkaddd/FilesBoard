@@ -1,0 +1,77 @@
+.popup {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    opacity: 1;
+}
+
+.popup.info {
+    background-color: #3498db;
+}
+
+.popup.success {
+    background-color: #2ecc71;
+}
+
+.popup.error {
+    background-color: #e74c3c;
+}
+
+.text-preview {
+    font-family: monospace;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    max-height: 180px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.text-preview::-webkit-scrollbar {
+    display: none;
+}
+
+.text-preview div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+
+.image-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 160px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.full-image {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.full-image img {
+    max-width: 50vw;
+    max-height: 50vh;
+    object-fit: contain;
+}

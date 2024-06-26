@@ -1,0 +1,7 @@
+__pycache__
+venv
+uploads/*
+
+config.py
+scripts/sync
+short_urls.json

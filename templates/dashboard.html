@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilesBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">FilesBoard</h1>
+
+        <div class="mb-8">
+            <form id="uploadForm" class="flex flex-col items-center">
+                <div id="dropZone" class="w-full h-32 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer mb-4">
+                    <p class="text-gray-500">Drag and drop files here or click to select</p>
+                    <input type="file" id="fileInput" class="hidden" multiple>
+                </div>
+                <ul id="uploadFileList" class="w-full mb-4"></ul>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#ffff"><path d="M446.67-315.33v-356L332-556.67l-47.33-48L480-800l195.33 195.33-47.33 48-114.67-114.66v356h-66.66ZM226.67-160q-27 0-46.84-19.83Q160-199.67 160-226.67V-362h66.67v135.33h506.66V-362H800v135.33q0 27-19.83 46.84Q760.33-160 733.33-160H226.67Z"/></svg>
+                </button>
+            </form>
+        </div>
+
+        <div>
+            <div id="fileList" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-4">
+            </div>
+        </div>
+    </div>
+    <div id="popupContainer" class="fixed top-4 right-4 space-y-2"></div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
