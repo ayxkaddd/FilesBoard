@@ -12,7 +12,8 @@ from auth import AuthHandler
 from models import AuthDetails
 from config import UPLOAD_DIRECTORY, users
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
