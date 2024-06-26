@@ -96,9 +96,13 @@ async def get_public_file(filename: str, t: str):
 
 @app.get("/private/{filename}")
 async def get_private_file(filename: str, t: str):
-    file_path = os.path.join(UPLOAD_DIRECTORY, filename)
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
+    try:
+        auth_handler.decode_token(t)
+        file_path = os.path.join(UPLOAD_DIRECTORY, filename)
+        if os.path.exists(file_path):
+            return FileResponse(file_path)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid or expired token")
 
     raise HTTPException(status_code=404, detail="File not found")
 

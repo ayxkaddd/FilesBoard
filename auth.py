@@ -34,11 +34,10 @@ class AuthHandler():
         except jwt.InvalidTokenError:
             raise HTTPException(status_code=401, detail='Invalid token')
 
-    def encode_temp_token(self, filename, user_id="hitler"):
+    def encode_temp_token(self, filename):
         payload = {
             'exp': datetime.utcnow() + timedelta(minutes=15),
             'iat': datetime.utcnow(),
-            'sub': user_id,
             'filename': filename
         }
         return jwt.encode(payload, self.secret, algorithm='HS256')
