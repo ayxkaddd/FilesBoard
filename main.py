@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, status, Request, Form
+from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, Request
 from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -140,6 +140,10 @@ async def redirect_short_url(short_url: str):
     else:
         raise HTTPException(status_code=404, detail="Short URL not found")
 
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(request=request, name="index.html")
 
 @app.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):

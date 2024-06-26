@@ -117,19 +117,19 @@ function createFileElement(filename) {
 
     const publicLinkButton = document.createElement('button');
     publicLinkButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#ffff"><path d="M226.67-40q-27 0-46.84-19.83Q160-79.67 160-106.67v-486q0-27 19.83-46.83 19.84-19.83 46.84-19.83h152.66v66.66H226.67v486h506.66v-486h-154v-66.66h154q27 0 46.84 19.83Q800-619.67 800-592.67v486q0 27-19.83 46.84Q760.33-40 733.33-40H226.67ZM446-338v-453.67l-80 80-47.33-47.66L479.33-920 640-759.33l-47.33 47.66-80-80V-338H446Z"/></svg>';
-    publicLinkButton.className = 'bg-green-500 text-white px-2 py-1 rounded text-sm mr-2';
+    publicLinkButton.className = 'bg-green-500 text-white px-2 py-2 rounded text-sm mr-2 content-center';
     publicLinkButton.onclick = () => getPublicLink(filename);
     buttonContainer.appendChild(publicLinkButton);
 
     const previewButton = document.createElement('button');
     previewButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#ffff"><path d="M186.67-120q-27.5 0-47.09-19.58Q120-159.17 120-186.67v-586.66q0-27.5 19.58-47.09Q159.17-840 186.67-840h586.66q27.5 0 47.09 19.58Q840-800.83 840-773.33v586.66q0 27.5-19.58 47.09Q800.83-120 773.33-120H186.67Zm0-66.67h586.66v-506.66H186.67v506.66Zm293.36-96.66q-80.7 0-144.2-43.6-63.5-43.61-92.5-113.17 29-69.57 92.48-113.07 63.47-43.5 144.16-43.5 80.7 0 144.2 43.6 63.5 43.61 92.5 113.17-29 69.57-92.48 113.07-63.47 43.5-144.16 43.5Zm-.03-53.34q56.67 0 103.97-27.38T658-440q-26.73-48.57-74.03-75.95-47.3-27.38-103.97-27.38t-103.97 27.38Q328.73-488.57 302-440q26.73 48.57 74.03 75.95 47.3 27.38 103.97 27.38ZM480-440Zm.08 53.33q22.25 0 37.75-15.58 15.5-15.57 15.5-37.83 0-22.25-15.58-37.75-15.57-15.5-37.83-15.5-22.25 0-37.75 15.58-15.5 15.57-15.5 37.83 0 22.25 15.58 37.75 15.57 15.5 37.83 15.5Z"/></svg>';
-    previewButton.className = 'bg-blue-500 text-white px-2 py-1 rounded text-sm mr-2';
+    previewButton.className = 'bg-blue-500 text-white px-2 py-2 rounded text-sm mr-2 content-center';
     previewButton.onclick = () => previewFile(filename);
     buttonContainer.appendChild(previewButton);
 
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#ffff"><path d="M267.33-120q-27.5 0-47.08-19.58-19.58-19.59-19.58-47.09V-740H160v-66.67h192V-840h256v33.33h192V-740h-40.67v553.33q0 27-19.83 46.84Q719.67-120 692.67-120H267.33Zm425.34-620H267.33v553.33h425.34V-740Zm-328 469.33h66.66v-386h-66.66v386Zm164 0h66.66v-386h-66.66v386ZM267.33-740v553.33V-740Z"/></svg>';
-    deleteButton.className = 'bg-red-500 text-white px-2 py-1 rounded text-sm';
+    deleteButton.className = 'bg-red-500 text-white px-2 py-2 rounded text-sm content-center';
     deleteButton.onclick = () => deleteFile(filename);
     buttonContainer.appendChild(deleteButton);
 
@@ -202,7 +202,7 @@ function getFileIcon(fileExt) {
         'exe': '<i class="fab fa-windows"><svg xmlns="http://www.w3.org/2000/svg" height="64px" viewBox="0 -960 960 960" width="64px" fill="#3498db"><path d="M334-120v-60h86v-100H140q-24 0-42-18t-18-42v-440q0-24 18-42t42-18h680q24 0 42 18t18 42v440q0 24-18 42t-42 18H540v100h86v60H334ZM140-340h680v-440H140v440Zm0 0v-440 440Z"/></svg></i>',
     };
 
-    return iconMap[fileExt] || '<i class="fas fa-file"><svg xmlns="http://www.w3.org/2000/svg" height="64px" viewBox="0 -960 960 960" width="64px" fill="#ffff"><path d="M479.99-280q15.01 0 25.18-10.15 10.16-10.16 10.16-25.17 0-15.01-10.15-25.18-10.16-10.17-25.17-10.17-15.01 0-25.18 10.16-10.16 10.15-10.16 25.17 0 15.01 10.15 25.17Q464.98-280 479.99-280Zm-31.32-155.33h66.66V-684h-66.66v248.67ZM480.18-80q-82.83 0-155.67-31.5-72.84-31.5-127.18-85.83Q143-251.67 111.5-324.56T80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.46q-54 54.21-127 85.84Q563-80 480.18-80Zm.15-66.67q139 0 236-97.33t97-236.33q0-139-96.87-236-96.88-97-236.46-97-138.67 0-236 96.87-97.33 96.88-97.33 236.46 0 138.67 97.33 236 97.33 97.33 236.33 97.33ZM480-480Z"/></svg></i>';
+    return iconMap[fileExt] || '<i class="fas fa-file"><svg xmlns="http://www.w3.org/2000/svg" height="64px" viewBox="0 -960 960 960" width="64px" fill="#3498db"><path d="M479.99-280q15.01 0 25.18-10.15 10.16-10.16 10.16-25.17 0-15.01-10.15-25.18-10.16-10.17-25.17-10.17-15.01 0-25.18 10.16-10.16 10.15-10.16 25.17 0 15.01 10.15 25.17Q464.98-280 479.99-280Zm-31.32-155.33h66.66V-684h-66.66v248.67ZM480.18-80q-82.83 0-155.67-31.5-72.84-31.5-127.18-85.83Q143-251.67 111.5-324.56T80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.46q-54 54.21-127 85.84Q563-80 480.18-80Zm.15-66.67q139 0 236-97.33t97-236.33q0-139-96.87-236-96.88-97-236.46-97-138.67 0-236 96.87-97.33 96.88-97.33 236.46 0 138.67 97.33 236 97.33 97.33 236.33 97.33ZM480-480Z"/></svg></i>';
 }
 
 
