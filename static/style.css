@@ -1,3 +1,12 @@
+@font-face{
+	font-display:block;
+	font-family:fm-mono;
+	src:url(https://eu.static.mega.co.nz/4/imagery/sprites-fm-mono.a67d0fb90e10bdab.woff2?h=dd3b1ae3a) format("woff2"),
+    url(https://eu.static.mega.co.nz/4/imagery/sprites-fm-mono.b0e83c87b78764ef.woff?h=dd3b1ae3a) format("woff"),
+    url(https://eu.static.mega.co.nz/4/imagery/sprites-fm-mono.8c50624a7322764d.ttf?h=dd3b1ae3a) format("truetype"),
+    url(https://eu.static.mega.co.nz/4/imagery/sprites-fm-mono.9a67ce6e52ce1774.svg?h=dd3b1ae3a#fm-mono) format("svg")
+}
+
 .popup {
     padding: 10px 20px;
     border-radius: 5px;
@@ -74,4 +83,41 @@
     max-width: 50vw;
     max-height: 50vh;
     object-fit: contain;
+}
+
+.file-icon {
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#breadcrumb a {
+    font-size: 20px;
+}
+
+#breadcrumb .separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.sprite-fm-mono.icon-arrow-right::before {
+    content: "\f28a";
+}
+
+.sprite-fm-mono::before {
+    font-family: fm-mono !important;
+    color: var(--mask-color);
+    display: inline-block;
+    font-size: var(--icon-size, 20px);
+    font-style: normal;
+    line-height: 1;
+    text-rendering: auto;
+    vertical-align: middle;
+}
+
+.sprite-fm-mono.icon-arrow-right {
+    --icon-size: 20px;
 }
