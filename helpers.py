@@ -3,6 +3,7 @@ import json
 import random
 import string
 from typing import Optional
+
 from config import UPLOAD_DIRECTORY
 
 
@@ -24,6 +25,10 @@ def save_short_url(short_url, actual_url):
 
 
 def get_file_path(filename: str, folder: Optional[str] = None) -> str:
-    if folder:
-        return os.path.join(UPLOAD_DIRECTORY, folder, filename)
-    return os.path.join(UPLOAD_DIRECTORY, filename)
+    path = os.path.join(UPLOAD_DIRECTORY, folder, filename) if folder else os.path.join(UPLOAD_DIRECTORY, filename)
+    normalized_path = os.path.normpath(path)
+
+    if not normalized_path.startswith(UPLOAD_DIRECTORY):
+        raise IOError()
+
+    return normalized_path
