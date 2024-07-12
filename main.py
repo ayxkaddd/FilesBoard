@@ -12,8 +12,7 @@ from helpers import generate_short_url, save_short_url, get_file_path
 from auth import AuthHandler
 from models import AuthDetails
 
-# app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
