@@ -112,7 +112,7 @@ async def get_public_file(filename: str, t: str, folder: Optional[str] = None):
         if payload.get("filename") != filename:
             raise HTTPException(status_code=400, detail="Invalid token for this file")
     except HTTPException:
-        raise HTTPException(status_code=400, detail="Invalid or expired token")
+        return RedirectResponse(url="https://www.youtube.com/watch?v=dQw4w9WgXcQ&msg=token+has+expired")
 
     try:
         file_path = get_file_path(filename, folder)
